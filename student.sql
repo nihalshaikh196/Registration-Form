@@ -44,9 +44,7 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`id`, `FirstName`, `LastName`, `Email`, `Country`, `type`, `pwd`) VALUES
 (1, 'test', 'test', 'test', 'Australia', 'Faculty', ''),
-(6, 'Ashwin', 'Bharambe', 'bharambeaashu10@gmail.com', 'India', 'Student', ''),
-(7, 'Ashwin', 'Bharambe', 'bharambeaashu10@gmail.com', 'India', 'Student', ''),
-(8, 'Kashish', 'Rao', 'kjrao@gmail.com', 'India', 'Professional', '25d55ad2');
+(2,'hardik', 'test', 'test', 'India', 'Student','');
 
 --
 -- Indexes for dumped tables
