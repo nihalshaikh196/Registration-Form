@@ -1,10 +1,7 @@
-<?php 
-require_once("connection.php");
-?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Assignment 5</title>
+	    <title>Assignment 5</title>
 	    <style type="text/css">
 .content{
   align-items: center;
@@ -387,6 +384,15 @@ option{
 </body>
 </html>
 <?php
+$conn=mysqli_connect('localhost','root');
+mysqli_select_db($conn,'student');
+
+if(!$conn)
+{
+echo "Error in connection";
+}
+else
+{
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
 		if (isset($_POST["FirstName"]) && isset($_POST["LastName"]) && isset($_POST["Email"]) && isset($_POST["Country"]) && isset($_POST["type"]) && isset($_POST["pwd"])){
 			
@@ -397,16 +403,18 @@ option{
 			$country=$_POST["Country"];
 			$work=$_POST["type"];
 
+  			
 			if($fname!=' ' && $lname!=' ' && $email!=' ' && $country!=' ' && $work!=' ' && $pwd!=' '){
-			$sql="insert into student(FirstName,LastName,Email,Country,type,pwd)values('$fname','$lname','$email','$country','$work','$pwd')";
+			    $sql="INSERT INTO student(FirstName,LastName,Email,Country,type,pwd) values ('$fname','$lname','$email','$country','$work','$pwd')";
 				$result=mysqli_query($conn,$sql);
-				print_r($result);
 				die;
-				if(!$result)
+				if(!$result){
 					echo "<script>alert('Record inserted');document.location='assign5.php'</script>";
+				}
 			}
 		}
 		else
 			echo"value not set";
 	}
+}
 ?>
